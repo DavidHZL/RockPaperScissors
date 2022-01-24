@@ -2,20 +2,35 @@
 
 const rpsSelection = ["rock", "paper", "scissors"];
 
+function game() {
+
+    let i = 0;
+
+    do {
+        i += 1;
+        const playerSelection = playerPlay();
+        const computerSelection = computerPlay();
+        playRound(playerSelection, computerSelection);
+    } while (i < 5);
+}
+
 function playRound(playerSelection, computerSelection) {
 
+    let result  = ""
+
     if (playerSelection === "rock" && computerSelection === "scissors") {
-        console.log("Congrats you won!");
+        result = "Congrats you won!";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        console.log("Congrats you won!");
+        result = "Congrats you won!";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        console.log("Congrats you won!");
+        result = "Congrats you won!";
     } else if (playerSelection === computerSelection) {
-        console.log("It is a tie!");
+        result = "It is a tie!";
     } else {
-        console.log("The computer won!");
+        result = "The Computer Won, You lose!";
     }
-    console.log ("Player: " + playerSelection + "\nComputer: "+ computerSelection);
+
+    console.log(result + "\nPlayer: " + playerSelection + "\nComputer: "+ computerSelection);
 }
 
 function playerPlay() {
@@ -34,6 +49,5 @@ function computerPlay() {
     return selection;
 }
 
-const playerSelection = playerPlay();
-const computerSelection = computerPlay();
-playRound(playerSelection, computerSelection);
+game();
+
